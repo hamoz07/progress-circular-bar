@@ -1,0 +1,129 @@
+/* body{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prog {
+    outline: 2px solid #7effb2;
+    outline-offset: -1px;
+    color: blue ;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.prog::after,
+.number{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+.prog::after{
+    content: "";
+    border-radius: inherit;
+    width:210px;
+    height:210px;
+    outline: inherit;
+}
+
+.number{
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.circle{
+    stroke-dasharray: 410;
+    stroke-dashoffset: 410;
+    transform:rotate(-90deg);
+    animation: bar-fill 8s linear forwards;
+}
+
+
+@keyframes bar-fill {
+    100%{
+        stroke-dashoffset: 0;
+    }
+}
+
+
+ */
+
+
+body {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: radial-gradient(#777,#111);
+}
+
+.card{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border: 4px solid #3d1313;
+    border-radius: 50%;
+    color: whitesmoke;
+}
+
+.card .rating{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.card .rating .block{
+    width: 3px;
+    height: 12px;
+    position: absolute;
+    left: 50%;
+    transform-origin: 50% 100px;
+    opacity: 0;
+    animation: indicate .2s linear forwards;
+    background-color: #000;
+}
+
+.card .rating .block:nth-child(-n+92){
+    background-color: chartreuse;
+}
+
+.card:nth-child(2) .rating > .block:nth-child(-n+92){
+    background-color: red;
+}
+
+.card:nth-child(3) .rating > .block:nth-child(-n+92){
+    background-color: orange;
+}
+
+@keyframes indicate {
+    to{
+        opacity: 1;
+    }
+}
+.card .rating h2{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.card .rating h2 span{
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.card .rating h2 span sup{
+    font-size: 1.5rem;
+}
